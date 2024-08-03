@@ -24,6 +24,41 @@ function runInstructions () {
     lightSpace("H", "Off")
     lightSpace("I", "Off")
 }
+function colorToRGB (Color: string, RGB: string) {
+    R = 0
+    G = 0
+    B = 0
+    if (Color == "Red") {
+        R = 255
+        G = 0
+        B = 0
+    } else if (Color == "White") {
+        R = 255
+        G = 255
+        B = 255
+    } else if (Color == "Off") {
+        R = 0
+        G = 0
+        B = 0
+    } else if (Color == "Yellow") {
+        R = 255
+        G = 255
+        B = 0
+    } else if (Color == "Blue") {
+        R = 0
+        G = 0
+        B = 255
+    } else {
+    	
+    }
+    if (RGB == "R") {
+        return R
+    } else if (RGB == "G") {
+        return G
+    } else {
+        return B
+    }
+}
 function lightSpace (Space: string, Effect: string) {
     if (Space == "A") {
         if (Effect == "Step") {
@@ -461,18 +496,7 @@ radio.onReceivedValue(function (name, value) {
         if (position.length > 1) {
             if (position == "Intro") {
                 if (value == 1) {
-                    stripA1.showColor(Connected.colors(Connected.NeoPixelColors.Blue))
-                    stripA2.showColor(Connected.colors(Connected.NeoPixelColors.Blue))
-                    stripB.showColor(Connected.colors(Connected.NeoPixelColors.Blue))
-                    stripC.showColor(Connected.colors(Connected.NeoPixelColors.Blue))
-                    brickLightWheelLeft.showColor(Connected.colors(Connected.NeoPixelColors.White))
-                    brickLightWheelRight.showColor(Connected.colors(Connected.NeoPixelColors.White))
-                    brickLightDragonRight.showColor(Connected.colors(Connected.NeoPixelColors.White))
-                    brickLightDragonLeft.showColor(Connected.colors(Connected.NeoPixelColors.White))
-                    brickLightGhosts.showColor(Connected.colors(Connected.NeoPixelColors.White))
-                    brickLightBomb.showColor(Connected.colors(Connected.NeoPixelColors.White))
-                    brickLightShell.showColor(Connected.colors(Connected.NeoPixelColors.White))
-                    brickLightCannon.showColor(Connected.colors(Connected.NeoPixelColors.White))
+                    setStrip("Blue", "Yellow", "White", "Off", "Red", "Blue", "Blue", "Blue", "Blue", "Blue")
                 } else if (value == 2) {
                     brickLightWheelLeft.showColor(Connected.colors(Connected.NeoPixelColors.Blue))
                     brickLightWheelRight.showColor(Connected.colors(Connected.NeoPixelColors.Blue))
@@ -565,8 +589,51 @@ radio.onReceivedValue(function (name, value) {
     }
 })
 function setStrip (A1: string, A2: string, B: string, C: string, D: string, E: string, F: string, G: string, H: string, I: string) {
-	
+    colorA1 = Connected.rgb(colorToRGB(A1, "R"), colorToRGB(A1, "G"), colorToRGB(A1, "B"))
+    colorA2 = Connected.rgb(colorToRGB(A2, "R"), colorToRGB(A2, "G"), colorToRGB(A2, "B"))
+    colorB = Connected.rgb(colorToRGB(B, "R"), colorToRGB(B, "G"), colorToRGB(B, "B"))
+    colorC = Connected.rgb(colorToRGB(C, "R"), colorToRGB(C, "G"), colorToRGB(C, "B"))
+    colorD = Connected.rgb(colorToRGB(D, "R"), colorToRGB(D, "G"), colorToRGB(D, "B"))
+    colorE = Connected.rgb(colorToRGB(E, "R"), colorToRGB(E, "G"), colorToRGB(E, "B"))
+    colorF = Connected.rgb(colorToRGB(F, "R"), colorToRGB(F, "G"), colorToRGB(F, "B"))
+    colorG = Connected.rgb(colorToRGB(G, "R"), colorToRGB(G, "G"), colorToRGB(G, "B"))
+    colorH = Connected.rgb(colorToRGB(H, "R"), colorToRGB(H, "G"), colorToRGB(H, "B"))
+    colorI = Connected.rgb(colorToRGB(I, "R"), colorToRGB(I, "G"), colorToRGB(I, "B"))
+    lightStrip = Connected.create(Connected.DigitalRJPin.W1, 20, Connected.NeoPixelMode.RGB)
+    lightStrip.setBrightness(255)
+    lightStrip.setPixelColor(0, colorH)
+    lightStrip.setPixelColor(1, colorH)
+    lightStrip.setPixelColor(2, colorF)
+    lightStrip.setPixelColor(3, colorF)
+    lightStrip.setPixelColor(4, colorD)
+    lightStrip.setPixelColor(5, colorD)
+    lightStrip.setPixelColor(6, colorB)
+    lightStrip.setPixelColor(7, colorB)
+    lightStrip.setPixelColor(8, colorA1)
+    lightStrip.setPixelColor(9, colorA1)
+    lightStrip.setPixelColor(10, colorA2)
+    lightStrip.setPixelColor(11, colorA2)
+    lightStrip.setPixelColor(12, colorC)
+    lightStrip.setPixelColor(13, colorC)
+    lightStrip.setPixelColor(14, colorE)
+    lightStrip.setPixelColor(15, colorE)
+    lightStrip.setPixelColor(16, colorG)
+    lightStrip.setPixelColor(17, colorG)
+    lightStrip.setPixelColor(18, colorI)
+    lightStrip.setPixelColor(19, colorI)
+    lightStrip.show()
 }
+let lightStrip: Connected.Strip = null
+let colorI = 0
+let colorH = 0
+let colorG = 0
+let colorF = 0
+let colorE = 0
+let colorD = 0
+let colorC = 0
+let colorB = 0
+let colorA2 = 0
+let colorA1 = 0
 let position = ""
 let sixthStep = ""
 let fifthStep = ""
@@ -578,6 +645,9 @@ let laserL = 0
 let laserC = 0
 let laserR = 0
 let awaitingStep = false
+let B = 0
+let G = 0
+let R = 0
 let brickLightCannon: Connected.Strip = null
 let brickLightShell: Connected.Strip = null
 let brickLightBomb: Connected.Strip = null
@@ -597,8 +667,8 @@ let stripB: Connected.Strip = null
 let stripA2: Connected.Strip = null
 let stripA1: Connected.Strip = null
 let btToken = ""
-let test = Connected.colors(Connected.NeoPixelColors.Red)
 let lightsAreSet = false
+let test = Connected.colors(Connected.NeoPixelColors.Red)
 OLED.init(128, 64)
 Connected.showUserText(1, "goodbye, daisy")
 basic.showIcon(IconNames.Heart)
