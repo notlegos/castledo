@@ -1,15 +1,6 @@
 function runIntro () {
     Connected.folderPlay("04", "001")
     radio.sendValue("" + btToken + "Intro", 1)
-    stripLights.showColor(Connected.colors(Connected.NeoPixelColors.Blue))
-    brickLightWheelLeft.showColor(Connected.colors(Connected.NeoPixelColors.White))
-    brickLightWheelRight.showColor(Connected.colors(Connected.NeoPixelColors.White))
-    brickLightDragonRight.showColor(Connected.colors(Connected.NeoPixelColors.White))
-    brickLightDragonLeft.showColor(Connected.colors(Connected.NeoPixelColors.White))
-    brickLightGhosts.showColor(Connected.colors(Connected.NeoPixelColors.White))
-    brickLightBomb.showColor(Connected.colors(Connected.NeoPixelColors.White))
-    brickLightShell.showColor(Connected.colors(Connected.NeoPixelColors.White))
-    brickLightCannon.showColor(Connected.colors(Connected.NeoPixelColors.White))
     basic.pause(5000)
     Connected.folderPlay("04", "002")
     radio.sendValue("" + btToken + "Intro", 2)
@@ -23,14 +14,6 @@ function runInstructions () {
     Kong.setServoAngel(Kong.ServoList.S0, 50)
     Connected.folderPlay("04", "004")
     radio.sendValue("" + btToken + "Intro", 4)
-    brickLightWheelLeft.showColor(Connected.colors(Connected.NeoPixelColors.Red))
-    brickLightWheelRight.showColor(Connected.colors(Connected.NeoPixelColors.Red))
-    brickLightDragonRight.showColor(Connected.colors(Connected.NeoPixelColors.Green))
-    brickLightDragonLeft.showColor(Connected.colors(Connected.NeoPixelColors.Green))
-    brickLightGhosts.showColor(Connected.colors(Connected.NeoPixelColors.Black))
-    brickLightBomb.showColor(Connected.colors(Connected.NeoPixelColors.Black))
-    brickLightShell.showColor(Connected.colors(Connected.NeoPixelColors.Black))
-    brickLightCannon.showColor(Connected.colors(Connected.NeoPixelColors.Black))
     lightSpace("A", "Step")
     lightSpace("B", "Off")
     lightSpace("C", "Off")
@@ -40,33 +23,6 @@ function runInstructions () {
     lightSpace("G", "Off")
     lightSpace("H", "Off")
     lightSpace("I", "Off")
-    basic.pause(5000)
-    Connected.folderPlay("04", "005")
-    radio.sendValue("" + btToken + "Intro", 5)
-    basic.pause(5000)
-    Connected.folderPlay("04", "006")
-    radio.sendValue("" + btToken + "Intro", 6)
-    basic.pause(5000)
-    Connected.folderPlay("04", "007")
-    radio.sendValue("" + btToken + "Intro", 7)
-    basic.pause(5000)
-    Connected.folderPlay("04", "008")
-    radio.sendValue("" + btToken + "Intro", 8)
-    basic.pause(5000)
-    Connected.folderPlay("04", "009")
-    radio.sendValue("" + btToken + "Intro", 9)
-    basic.pause(5000)
-    Connected.folderPlay("04", "010")
-    radio.sendValue("" + btToken + "Intro", 10)
-    basic.pause(5000)
-    Connected.folderPlay("04", "011")
-    radio.sendValue("" + btToken + "Intro", 11)
-    basic.pause(5000)
-    Connected.folderPlay("04", "012")
-    radio.sendValue("" + btToken + "Intro", 12)
-    basic.pause(5000)
-    Connected.folderPlay("04", "013")
-    radio.sendValue("" + btToken + "Intro", 12)
 }
 function lightSpace (Space: string, Effect: string) {
     if (Space == "A") {
@@ -504,10 +460,63 @@ radio.onReceivedValue(function (name, value) {
         position = name.substr(btToken.length, name.length - btToken.length)
         if (position.length > 1) {
             if (position == "Intro") {
-                if (value == 0) {
-                    runIntro()
-                } else if (value == 100) {
-                    runInstructions()
+                if (value == 1) {
+                    stripA1.showColor(Connected.colors(Connected.NeoPixelColors.Blue))
+                    stripA2.showColor(Connected.colors(Connected.NeoPixelColors.Blue))
+                    stripB.showColor(Connected.colors(Connected.NeoPixelColors.Blue))
+                    stripC.showColor(Connected.colors(Connected.NeoPixelColors.Blue))
+                    brickLightWheelLeft.showColor(Connected.colors(Connected.NeoPixelColors.White))
+                    brickLightWheelRight.showColor(Connected.colors(Connected.NeoPixelColors.White))
+                    brickLightDragonRight.showColor(Connected.colors(Connected.NeoPixelColors.White))
+                    brickLightDragonLeft.showColor(Connected.colors(Connected.NeoPixelColors.White))
+                    brickLightGhosts.showColor(Connected.colors(Connected.NeoPixelColors.White))
+                    brickLightBomb.showColor(Connected.colors(Connected.NeoPixelColors.White))
+                    brickLightShell.showColor(Connected.colors(Connected.NeoPixelColors.White))
+                    brickLightCannon.showColor(Connected.colors(Connected.NeoPixelColors.White))
+                } else if (value == 2) {
+                    brickLightWheelLeft.showColor(Connected.colors(Connected.NeoPixelColors.Blue))
+                    brickLightWheelRight.showColor(Connected.colors(Connected.NeoPixelColors.Blue))
+                    brickLightDragonRight.showColor(Connected.colors(Connected.NeoPixelColors.Green))
+                    brickLightDragonLeft.showColor(Connected.colors(Connected.NeoPixelColors.Green))
+                    brickLightGhosts.showColor(Connected.colors(Connected.NeoPixelColors.Black))
+                    brickLightBomb.showColor(Connected.colors(Connected.NeoPixelColors.Black))
+                    brickLightShell.showColor(Connected.colors(Connected.NeoPixelColors.Blue))
+                    brickLightCannon.showColor(Connected.colors(Connected.NeoPixelColors.Black))
+                    stripD.showColor(Connected.colors(Connected.NeoPixelColors.Blue))
+                    stripE.showColor(Connected.colors(Connected.NeoPixelColors.Blue))
+                    stripF.showColor(Connected.colors(Connected.NeoPixelColors.Blue))
+                    stripG.showColor(Connected.colors(Connected.NeoPixelColors.Blue))
+                } else if (value == 3) {
+                    stripA1.showColor(Connected.colors(Connected.NeoPixelColors.Black))
+                    stripA2.showColor(Connected.colors(Connected.NeoPixelColors.Black))
+                    stripB.showColor(Connected.colors(Connected.NeoPixelColors.Black))
+                    stripC.showColor(Connected.colors(Connected.NeoPixelColors.Black))
+                    stripD.showColor(Connected.colors(Connected.NeoPixelColors.Black))
+                    stripE.showColor(Connected.colors(Connected.NeoPixelColors.Black))
+                    stripF.showColor(Connected.colors(Connected.NeoPixelColors.Black))
+                    stripG.showColor(Connected.colors(Connected.NeoPixelColors.Black))
+                    brickLightShell.showColor(Connected.colors(Connected.NeoPixelColors.White))
+                    stripH.showColor(Connected.colors(Connected.NeoPixelColors.White))
+                    stripI.showColor(Connected.colors(Connected.NeoPixelColors.White))
+                } else if (value == 4) {
+                    brickLightShell.showColor(Connected.colors(Connected.NeoPixelColors.Yellow))
+                    stripH.showColor(Connected.colors(Connected.NeoPixelColors.Yellow))
+                    stripI.showColor(Connected.colors(Connected.NeoPixelColors.Yellow))
+                } else if (value == 5) {
+                    brickLightWheelLeft.showColor(Connected.colors(Connected.NeoPixelColors.Red))
+                    brickLightWheelRight.showColor(Connected.colors(Connected.NeoPixelColors.Red))
+                    brickLightShell.showColor(Connected.colors(Connected.NeoPixelColors.Black))
+                    stripH.showColor(Connected.colors(Connected.NeoPixelColors.Black))
+                    stripI.showColor(Connected.colors(Connected.NeoPixelColors.Black))
+                } else if (value == 6) {
+                    stripA1.showColor(Connected.colors(Connected.NeoPixelColors.White))
+                    stripA2.showColor(Connected.colors(Connected.NeoPixelColors.White))
+                } else if (value == 7) {
+                	
+                } else if (value == 8) {
+                	
+                } else {
+                	
                 }
             }
         } else {
@@ -555,6 +564,9 @@ radio.onReceivedValue(function (name, value) {
         }
     }
 })
+function setStrip (A1: string, A2: string, B: string, C: string, D: string, E: string, F: string, G: string, H: string, I: string) {
+	
+}
 let position = ""
 let sixthStep = ""
 let fifthStep = ""
@@ -584,8 +596,8 @@ let stripC: Connected.Strip = null
 let stripB: Connected.Strip = null
 let stripA2: Connected.Strip = null
 let stripA1: Connected.Strip = null
-let stripLights: Connected.Strip = null
 let btToken = ""
+let test = Connected.colors(Connected.NeoPixelColors.Red)
 let lightsAreSet = false
 OLED.init(128, 64)
 Connected.showUserText(1, "goodbye, daisy")
@@ -600,7 +612,7 @@ radio.setGroup(btGroup)
 Connected.MP3SetPort(Connected.DigitalRJPin.O0)
 Connected.setVolume(23)
 Connected.setVolume(18)
-stripLights = Connected.create(Connected.DigitalRJPin.W1, 20, Connected.NeoPixelMode.RGB)
+let stripLights = Connected.create(Connected.DigitalRJPin.W1, 20, Connected.NeoPixelMode.RGB)
 stripLights.setBrightness(100)
 stripLights.showColor(Connected.colors(Connected.NeoPixelColors.Black))
 stripA1 = stripLights.range(8, 2)
