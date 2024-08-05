@@ -76,18 +76,10 @@ function lightSpace (Space: string, Effect: string) {
     if (Space == "A") {
         if (Effect == "Step") {
             setStrip("White", "White", "Off", "Off", "Off", "Off", "Off", "Off", "Off", "Off")
-        } else if (Effect == "Indicate") {
-            setStrip("Yellow", "Yellow", "Off", "Off", "Off", "Off", "Off", "Off", "Off", "Off")
-        } else if (Effect == "Off") {
-            setStrip("Off", "Off", "", "", "", "", "", "", "", "")
         }
     } else if (Space == "B") {
         if (Effect == "Step") {
             setStrip("", "", "White", "", "", "", "", "", "", "")
-        } else if (Effect == "Indicate") {
-            setStrip("", "", "Yellow", "", "", "", "", "", "", "")
-        } else if (Effect == "Off") {
-            setStrip("", "", "Off", "", "", "", "", "", "", "")
         } else if (Effect == "Mine") {
             setStrip("", "", "Red", "", "", "", "", "", "", "")
             Kong.setServoAngel(Kong.ServoList.S7, 110)
@@ -98,10 +90,6 @@ function lightSpace (Space: string, Effect: string) {
     } else if (Space == "C") {
         if (Effect == "Step") {
             setStrip("", "", "", "White", "", "", "", "", "", "")
-        } else if (Effect == "Indicate") {
-            setStrip("", "", "", "Yellow", "", "", "", "", "", "")
-        } else if (Effect == "Off") {
-            setStrip("", "", "", "Off", "", "", "", "", "", "")
         } else if (Effect == "Mine") {
             setStrip("", "", "", "Red", "", "", "", "", "", "")
             Kong.setServoAngel(Kong.ServoList.S1, 85)
@@ -112,10 +100,6 @@ function lightSpace (Space: string, Effect: string) {
     } else if (Space == "D") {
         if (Effect == "Step") {
             setStrip("", "", "", "", "White", "", "", "", "", "")
-        } else if (Effect == "Indicate") {
-            setStrip("", "", "", "", "Yellow", "", "", "", "", "")
-        } else if (Effect == "Off") {
-            setStrip("", "", "", "", "Off", "", "", "", "", "")
         } else if (Effect == "Mine") {
             setStrip("", "", "", "", "Red", "", "", "", "", "")
             setBricks("", "", "", "", "", "", "", "Yellow")
@@ -128,10 +112,6 @@ function lightSpace (Space: string, Effect: string) {
     } else if (Space == "E") {
         if (Effect == "Step") {
             setStrip("", "", "", "", "", "White", "", "", "", "")
-        } else if (Effect == "Indicate") {
-            setStrip("", "", "", "", "", "Yellow", "", "", "", "")
-        } else if (Effect == "Off") {
-            setStrip("", "", "", "", "", "Off", "", "", "", "")
         } else if (Effect == "Mine") {
             setStrip("", "", "", "", "", "Red", "", "", "", "")
             Kong.setServoAngel(Kong.ServoList.S1, 85)
@@ -142,10 +122,6 @@ function lightSpace (Space: string, Effect: string) {
     } else if (Space == "F") {
         if (Effect == "Step") {
             setStrip("", "", "", "", "", "", "White", "", "", "")
-        } else if (Effect == "Indicate") {
-            setStrip("", "", "", "", "", "", "Yellow", "", "", "")
-        } else if (Effect == "Off") {
-            setStrip("", "", "", "", "", "", "Off", "", "", "")
         } else if (Effect == "Mine") {
             setStrip("", "", "", "", "", "", "Red", "", "", "")
             setBricks("", "", "", "", "", "", "Blue", "")
@@ -158,10 +134,6 @@ function lightSpace (Space: string, Effect: string) {
     } else if (Space == "G") {
         if (Effect == "Step") {
             setStrip("", "", "", "", "", "", "", "White", "", "")
-        } else if (Effect == "Indicate") {
-            setStrip("", "", "", "", "", "", "", "Yellow", "", "")
-        } else if (Effect == "Off") {
-            setStrip("", "", "", "", "", "", "", "Off", "", "")
         } else if (Effect == "Mine") {
             setStrip("", "", "", "", "", "", "", "Red", "", "")
             setBricks("", "", "", "", "Blue", "", "", "")
@@ -174,17 +146,13 @@ function lightSpace (Space: string, Effect: string) {
     } else if (Space == "H") {
         if (Effect == "Step") {
             setStrip("", "", "", "", "", "", "", "", "White", "")
-        } else if (Effect == "Indicate") {
-            setStrip("", "", "", "", "", "", "", "", "Yellow", "")
-        } else if (Effect == "Off") {
-            setStrip("", "", "", "", "", "", "", "", "Off", "")
         } else if (Effect == "Mine") {
             setStrip("", "", "", "", "", "", "", "", "Red", "")
             Kong.setServoAngel(Kong.ServoList.S4, 90)
             basic.pause(2000)
             Kong.setServoAngel(Kong.ServoList.S4, 65)
             setStrip("", "", "", "", "", "", "", "", "Off", "")
-        } else if (Effect == "Winner") {
+        } else if (Effect == "Win") {
             setStrip("", "", "", "", "", "", "", "", "Blue", "")
             basic.pause(2000)
             setStrip("", "", "", "", "", "", "", "", "Off", "")
@@ -192,17 +160,13 @@ function lightSpace (Space: string, Effect: string) {
     } else if (Space == "I") {
         if (Effect == "Step") {
             setStrip("", "", "", "", "", "", "", "", "", "White")
-        } else if (Effect == "Indicate") {
-            setStrip("", "", "", "", "", "", "", "", "", "Yellow")
-        } else if (Effect == "Off") {
-            setStrip("", "", "", "", "", "", "", "", "", "Off")
         } else if (Effect == "Mine") {
             setStrip("", "", "", "", "", "", "", "", "", "Red")
             Kong.setServoAngel(Kong.ServoList.S4, 90)
             basic.pause(2000)
             Kong.setServoAngel(Kong.ServoList.S4, 65)
             setStrip("", "", "", "", "", "", "", "", "", "Off")
-        } else if (Effect == "Winner") {
+        } else if (Effect == "Win") {
             setStrip("", "", "", "", "", "", "", "", "", "Blue")
             basic.pause(2000)
             setStrip("", "", "", "", "", "", "", "", "", "Off")
@@ -402,51 +366,49 @@ radio.onReceivedValue(function (name, value) {
                     setStrip("White", "White", "White", "White", "White", "White", "White", "White", "White", "White")
                     setBricks("White", "White", "White", "White", "Off", "White", "White", "White")
                     wukongLights.showColor(kongpixel.colors(KongPixelColors.White))
-                } else {
+                }
+            } else if (position == "Fog") {
+                if (value == 0) {
+                	
+                } else if (value == 1) {
+                	
+                } else if (value == 2) {
+                	
+                } else if (value == 3) {
                 	
                 }
+            } else if (position == "Sock") {
+            	
+            } else if (position == "Win") {
+                if (value == 0) {
+                	
+                } else if (value == 1) {
+                	
+                } else if (value == 2) {
+                	
+                } else if (value == 3) {
+                	
+                }
+            } else if (position == "Over") {
+                if (value == 0) {
+                	
+                } else if (value == 1) {
+                	
+                } else if (value == 2) {
+                	
+                } else if (value == 3) {
+                	
+                }
+            } else if (position == "Turn") {
+            	
             }
         } else {
-            if (value == 0) {
-                lightSpace(position, "Off")
-            } else if (value == 1) {
-                lightSpace(position, "Indicate")
-            } else if (value == 2) {
+            if (value == 1) {
                 lightSpace(position, "Step")
-            } else if (value == 3) {
-                lightSpace(position, "Door")
-            } else if (value == 4) {
-                lightSpace(position, "RedChop")
-            } else if (value == 5) {
-                lightSpace(position, "Shark")
-            } else if (value == 6) {
-                lightSpace(position, "Cannon")
-            } else if (value == 7) {
-                lightSpace(position, "GrayChop")
-            } else if (value == 8) {
-                lightSpace(position, "Dragon")
-            } else if (value == 9) {
-                lightSpace(position, "Wheel")
-            } else if (value == 10) {
-                lightSpace(position, "Sock")
-            } else if (value == 20) {
+            } else if (value == 2) {
                 lightSpace(position, "Mine")
-            } else if (value == 30) {
-                lightSpace(position, "Winner")
-            } else if (value == 23) {
-                lightSpace(position, "")
-            } else if (value == 24) {
-                lightSpace(position, "")
-            } else if (value == 25) {
-                lightSpace(position, "")
-            } else if (value == 26) {
-                lightSpace(position, "")
-            } else if (value == 27) {
-                lightSpace(position, "")
-            } else if (value == 28) {
-                lightSpace(position, "")
-            } else {
-            	
+            } else if (value == 3) {
+                lightSpace(position, "Win")
             }
         }
     }
@@ -524,7 +486,6 @@ let brickLights: Connected.Strip = null
 let btToken = ""
 let lightsAreSet = false
 let test = Connected.colors(Connected.NeoPixelColors.Red)
-OLED.init(128, 64)
 Connected.showUserText(1, "goodbye, daisy")
 basic.showIcon(IconNames.Heart)
 basic.pause(200)

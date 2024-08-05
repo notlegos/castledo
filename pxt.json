@@ -14,7 +14,6 @@
         "display.ts",
         "planetxbasic.ts",
         "kong.ts",
-        "oled.ts",
         "KongPixel.ts"
     ],
     "testFiles": [
@@ -27,5 +26,5 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "tsprj"
+    "preferredEditor": "blocksprj"
 }
