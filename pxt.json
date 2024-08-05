@@ -12,15 +12,9 @@
         "README.md",
         "displaySendBuffer.asm",
         "display.ts",
-        "planetxiot.ts",
         "planetxbasic.ts",
-        "nezha.ts",
-        "planetxai.ts",
-        "bot.ts",
         "kong.ts",
         "oled.ts",
-        "notlegos.ts",
-        "joystickBit.ts",
         "KongPixel.ts"
     ],
     "testFiles": [
@@ -33,5 +27,5 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }

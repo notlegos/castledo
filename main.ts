@@ -15,11 +15,23 @@ function toRGB (Color: string, RGB: string) {
         G = 0
         B = 0
     } else if (Color == "Yellow") {
-        R = 255
-        G = 255
+        R = 139
+        G = 128
         B = 0
     } else if (Color == "Blue") {
         R = 0
+        G = 0
+        B = 255
+    } else if (Color == "Green") {
+        R = 0
+        G = 255
+        B = 0
+    } else if (Color == "Orange") {
+        R = 255
+        G = 80
+        B = 0
+    } else if (Color == "Purple") {
+        R = 102
         G = 0
         B = 255
     } else {
@@ -254,7 +266,7 @@ radio.onReceivedValue(function (name, value) {
                     setBricks("Off", "Off", "Off", "Off", "Off", "Off", "Off", "Off")
                 } else if (value == 4) {
                     basic.pause(750)
-                    setStrip("", "", "", "", "", "", "", "", "Off", "White")
+                    setStrip("", "", "", "", "", "", "", "", "Off", "Green")
                 } else if (value == 5) {
                     setStrip("Blue", "Blue", "Blue", "Blue", "Blue", "Blue", "Blue", "Blue", "Blue", "Blue")
                     setBricks("Blue", "Blue", "Blue", "Blue", "Off", "Blue", "Blue", "Blue")
@@ -286,10 +298,52 @@ radio.onReceivedValue(function (name, value) {
                         basic.pause(500)
                         setStrip("White", "White", "", "", "", "", "", "", "", "")
                     }
-                } else if (value == 10) {
-                	
-                } else if (value == 11) {
                     setBricks("Off", "Off", "Off", "Off", "Off", "Off", "Off", "Off")
+                    wukongLights.showColor(kongpixel.colors(KongPixelColors.Black))
+                } else if (value == 10) {
+                    setStrip("White", "White", "Off", "Off", "Off", "Off", "Off", "Off", "Off", "Off")
+                    basic.pause(2000)
+                    setStrip("White", "White", "Yellow", "Yellow", "", "", "", "", "", "")
+                    basic.pause(3500)
+                    for (let index = 0; index < 2; index++) {
+                        basic.pause(200)
+                        setStrip("", "", "", "Red", "", "", "", "", "", "")
+                        basic.pause(200)
+                        setStrip("", "", "", "Off", "", "", "", "", "", "")
+                    }
+                    Kong.setServoAngel(Kong.ServoList.S1, 85)
+                    for (let index = 0; index < 2; index++) {
+                        basic.pause(200)
+                        setStrip("", "", "", "Red", "", "", "", "", "", "")
+                        basic.pause(200)
+                        setStrip("", "", "", "Off", "", "", "", "", "", "")
+                    }
+                    Kong.setServoAngel(Kong.ServoList.S1, 20)
+                    basic.pause(500)
+                    setStrip("Off", "Off", "White", "Off", "Yellow", "", "", "", "", "")
+                    basic.pause(500)
+                    setStrip("", "", "Off", "", "White", "Yellow", "Yellow", "", "", "")
+                    basic.pause(200)
+                    for (let index = 0; index < 2; index++) {
+                        basic.pause(200)
+                        setStrip("", "", "", "", "", "", "Red", "", "", "")
+                        basic.pause(200)
+                        setStrip("", "", "", "", "", "", "Off", "", "", "")
+                    }
+                    Kong.setServoAngel(Kong.ServoList.S3, 50)
+                    for (let index = 0; index < 2; index++) {
+                        basic.pause(200)
+                        setStrip("", "", "", "", "", "", "Red", "", "", "")
+                        basic.pause(200)
+                        setStrip("", "", "", "", "", "", "Off", "", "", "")
+                    }
+                    Kong.setServoAngel(Kong.ServoList.S3, 130)
+                    setStrip("", "", "", "", "Off", "White", "Off", "Yellow", "", "")
+                    basic.pause(400)
+                    setStrip("", "", "", "", "", "Off", "", "White", "", "Yellow")
+                    basic.pause(400)
+                    setStrip("", "", "", "", "", "", "", "Off", "Yellow", "White")
+                } else if (value == 11) {
                     setStrip("Off", "Off", "Off", "Off", "Off", "Off", "Off", "Off", "Off", "Off")
                     basic.pause(200)
                     setStrip("", "", "", "", "", "", "", "", "White", "White")
@@ -303,31 +357,52 @@ radio.onReceivedValue(function (name, value) {
                     setStrip("White", "White", "", "", "Off", "Off", "", "", "", "")
                     basic.pause(100)
                     setStrip("", "", "Off", "Off", "", "", "", "", "", "")
-                    for (let index = 0; index < 6; index++) {
+                    for (let index = 0; index < 4; index++) {
                         setStrip("White", "White", "Off", "Off", "Off", "Off", "Off", "Off", "Off", "Off")
-                        basic.pause(500)
-                        setStrip("Off", "Off", "Off", "Off", "Off", "Off", "Off", "Off", "Off", "Off")
-                        basic.pause(500)
+                        basic.pause(400)
+                        setStrip("Off", "Off", "", "", "", "", "", "", "", "")
+                        basic.pause(400)
                     }
                 } else if (value == 12) {
-                	
+                    setStrip("White", "White", "", "", "", "", "", "", "", "")
                 } else if (value == 13) {
-                	
+                    setStrip("", "", "Yellow", "Yellow", "", "", "", "", "", "")
                 } else if (value == 14) {
-                	
+                    setStrip("Off", "Red", "Off", "Red", "Off", "Red", "Off", "Red", "Off", "Red")
+                    basic.pause(250)
+                    setStrip("Red", "Off", "Red", "Off", "Red", "Off", "Red", "Off", "Red", "Off")
+                    basic.pause(250)
+                    setStrip("Off", "Off", "Off", "Off", "Off", "Off", "Off", "Off", "Off", "Off")
+                    setBricks("", "", "", "", "", "Red", "Red", "")
+                    basic.pause(250)
+                    setBricks("", "", "", "", "", "Off", "Off", "")
                 } else if (value == 15) {
-                	
+                    setStrip("Purple", "Purple", "Purple", "Purple", "Purple", "Purple", "Purple", "Purple", "Purple", "Purple")
                 } else if (value == 16) {
-                	
+                    setStrip("Green", "Green", "Green", "Green", "Green", "Green", "Green", "Green", "Green", "Green")
                 } else if (value == 17) {
-                	
+                    setStrip("Yellow", "Yellow", "Yellow", "Yellow", "Yellow", "Yellow", "Yellow", "Yellow", "Yellow", "Yellow")
                 } else if (value == 18) {
-                	
+                    setStrip("Orange", "Orange", "Orange", "Orange", "Orange", "Orange", "Orange", "Orange", "Orange", "Orange")
                 } else if (value == 19) {
-                	
+                    setStrip("Red", "Red", "Red", "Red", "Red", "Red", "Red", "Red", "Red", "Red")
                 } else if (value == 20) {
+                    basic.pause(2800)
+                    setStrip("Off", "Off", "Off", "Off", "Off", "Off", "Off", "Off", "Off", "Off")
                     Kong.setServoAngel(Kong.ServoList.S0, 50)
-                } else if (false) {
+                } else if (value == 21) {
+                    setStrip("Red", "Red", "Red", "Red", "Red", "Red", "Red", "Red", "Red", "Red")
+                    setBricks("Red", "Red", "Red", "Red", "Off", "Red", "Red", "Red")
+                    wukongLights.showColor(kongpixel.colors(KongPixelColors.Red))
+                } else if (value == 22) {
+                    setStrip("Blue", "Blue", "Blue", "Blue", "Blue", "Blue", "Blue", "Blue", "Blue", "Blue")
+                    setBricks("Blue", "Blue", "Blue", "Blue", "Off", "Blue", "Blue", "Blue")
+                    wukongLights.showColor(kongpixel.colors(KongPixelColors.Blue))
+                } else if (value == 23) {
+                    setStrip("White", "White", "White", "White", "White", "White", "White", "White", "White", "White")
+                    setBricks("White", "White", "White", "White", "Off", "White", "White", "White")
+                    wukongLights.showColor(kongpixel.colors(KongPixelColors.White))
+                } else {
                 	
                 }
             }
@@ -470,7 +545,7 @@ Kong.ksetMotorSpeed(Kong.MotorList.M1, 0)
 Kong.setServoAngel(Kong.ServoList.S0, 50)
 Kong.setServoAngel(Kong.ServoList.S1, 20)
 Kong.setServoAngel(Kong.ServoList.S2, 110)
-Kong.setServoAngel(Kong.ServoList.S3, 120)
+Kong.setServoAngel(Kong.ServoList.S3, 130)
 Kong.setServoAngel(Kong.ServoList.S4, 65)
 Kong.setServoAngel(Kong.ServoList.S5, 135)
 Kong.setServoAngel(Kong.ServoList.S6, 90)
